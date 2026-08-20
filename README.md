@@ -84,20 +84,8 @@ A futuristic developer portfolio focused on projects, engineering work, and inte
 
 <a href="https://leetcode.com/u/harshit_saxena14/">
 
-<img src="https://leetcard.jacoblin.cool/harshit_saxena14?theme=dark&font=baloo&border=0&radius=12&cache=60" width="500"/>
+<img src="./generated/leetcode.svg" alt="Harshit Saxena LeetCode Dashboard" width="100%"/>
 
 </a>
-
-<br/><br/>
-
-### `SUBMISSION.ACTIVITY`
-
-<img src="https://leetcard.jacoblin.cool/harshit_saxena14?ext=activity&theme=dark&font=baloo&border=0&radius=12&cache=60" width="500"/>
-
-<br/><br/>
-
-### `52W.HEATMAP`
-
-<img src="https://leetcard.jacoblin.cool/harshit_saxena14?ext=heatmap&theme=dark&font=baloo&border=0&radius=12&cache=60" width="500"/>
 
 </div>
