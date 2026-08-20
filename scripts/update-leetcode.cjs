@@ -345,6 +345,27 @@ let svg = `
   transform-box: fill-box;
   transform-origin: center;
 }
+.heatWorm {
+  animation: wormMove 18s linear infinite;
+}
+
+.heatWormGlow {
+  animation: wormMove 18s linear infinite;
+}
+
+.heatWormEye {
+  animation: wormMove 18s linear infinite;
+}
+
+@keyframes wormMove {
+  0% {
+    offset-distance: 0%;
+  }
+
+  100% {
+    offset-distance: 100%;
+  }
+}
 </style>
 
 </defs>
@@ -1109,8 +1130,11 @@ const gridX = 66;
 const gridY = 842;
 const cell = 13;
 const gap = 4;
-
+const wormCells = cells
+  .filter(c => c.count > 0)
+  .slice(-24);
 for(let i = 0; i < cells.length; i++){
+  
 
   const c = cells[i];
 
@@ -1136,7 +1160,109 @@ for(let i = 0; i < cells.length; i++){
 </rect>
 `;
 }
+ if (wormCells.length > 1) {
 
+  const wormPoints = wormCells.map(c => {
+    const index = cells.indexOf(c);
+    const col = Math.floor(index / 7);
+    const row = index % 7;
+
+    return {
+      x: gridX + col * (cell + gap) + cell / 2,
+      y: gridY + row * (cell + gap) + cell / 2
+    };
+  });
+
+  const wormPath = wormPoints
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
+    .join(" ");
+
+  svg += `
+  <!-- ================================================= -->
+  <!-- HEATMAP WORM -->
+  <!-- ================================================= -->
+
+  <defs>
+
+    <filter id="wormGlow">
+      <feGaussianBlur
+        stdDeviation="3"
+        result="blur"/>
+
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <path
+      id="wormTravelPath"
+      d="${wormPath}"
+      fill="none"/>
+      
+  </defs>
+
+  <!-- subtle trail -->
+
+  <path
+    d="${wormPath}"
+    fill="none"
+    stroke="#00e5ff"
+    stroke-width="2"
+    opacity=".10"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+
+  <!-- WORM -->
+
+  <g class="heatWorm">
+
+    <!-- tail -->
+
+    <circle
+      cx="-14"
+      cy="0"
+      r="2.5"
+      fill="#07546a"
+      opacity=".65"/>
+
+    <circle
+      cx="-8"
+      cy="0"
+      r="3.5"
+      fill="#087f9b"
+      opacity=".85"/>
+
+    <!-- body -->
+
+    <circle
+      cx="0"
+      cy="0"
+      r="5"
+      fill="#00e5ff"
+      filter="url(#wormGlow)"/>
+
+    <!-- eye -->
+
+    <circle
+      cx="2"
+      cy="-1.5"
+      r="1.3"
+      fill="#ffffff"/>
+
+    <!-- movement -->
+
+    <animateMotion
+      dur="18s"
+      repeatCount="indefinite"
+      rotate="auto">
+      <mpath href="#wormTravelPath"/>
+    </animateMotion>
+
+  </g>
+  `;
+}
 <!-- ===================================================== -->
 <!-- FOOTER -->
 <!-- ===================================================== -->
