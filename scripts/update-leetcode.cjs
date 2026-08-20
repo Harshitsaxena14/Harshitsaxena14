@@ -243,9 +243,15 @@ let svg = `
     <stop offset="1" stop-color="#00e5ff"/>
   </linearGradient>
 
-  <linearGradient id="forest" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#071426"/>
-    <stop offset="1" stop-color="#02060d"/>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#07172c"/>
+    <stop offset=".55" stop-color="#061426"/>
+    <stop offset="1" stop-color="#020711"/>
+  </linearGradient>
+
+  <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#102b45"/>
+    <stop offset="1" stop-color="#07101d"/>
   </linearGradient>
 
   <linearGradient id="easy" x1="0" x2="1">
@@ -260,36 +266,30 @@ let svg = `
 
   <linearGradient id="hard" x1="0" x2="1">
     <stop stop-color="#ef5960"/>
-    <stop offset="1" stop-color="#ff969b"/>
+    <stop offset="1" stop-color="#ff8b91"/>
   </linearGradient>
 
   <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
     <path d="M32 0H0V32"
-      fill="none"
-      stroke="#16283e"
-      opacity=".22"/>
+          fill="none"
+          stroke="#19304a"
+          opacity=".22"/>
   </pattern>
-
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="4" result="blur"/>
-    <feMerge>
-      <feMergeNode in="blur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
 
 </defs>
 
-<!-- BACKGROUND -->
+<!-- ===================================================== -->
+<!-- OUTER FRAME -->
+<!-- ===================================================== -->
 
 <rect
   x="8"
   y="8"
   width="1184"
   height="1104"
-  rx="26"
-  fill="#050910"
-  stroke="#24364e"
+  rx="24"
+  fill="#050a12"
+  stroke="#26364e"
   stroke-width="2"/>
 
 <rect
@@ -297,249 +297,326 @@ let svg = `
   y="18"
   width="1164"
   height="1084"
-  rx="20"
+  rx="18"
   fill="url(#grid)"/>
 
-
-<!-- TERMINAL HEADER -->
+<!-- ===================================================== -->
+<!-- TERMINAL BAR -->
+<!-- ===================================================== -->
 
 <rect
   x="${left}"
-  y="34"
+  y="36"
   width="${right-left}"
   height="58"
   rx="12"
-  fill="#0b1422"
-  stroke="#2a3d58"/>
+  fill="#0c1421"
+  stroke="#2a3c57"/>
 
-<circle cx="66" cy="63" r="6" fill="#ff5f57"/>
-<circle cx="88" cy="63" r="6" fill="#febc2e"/>
-<circle cx="110" cy="63" r="6" fill="#28c840"/>
+<circle cx="66" cy="65" r="6" fill="#ff5f57"/>
+<circle cx="88" cy="65" r="6" fill="#febc2e"/>
+<circle cx="110" cy="65" r="6" fill="#28c840"/>
 
 <text
   x="138"
-  y="69"
+  y="71"
   fill="#9aabc0"
   font-family="monospace"
   font-size="17">
-  harshit@devos ~ $ dsa --monitor --live
+harshit@devos ~ $ dsa --monitor --live
 </text>
 
 <text
   x="1128"
-  y="69"
+  y="71"
   text-anchor="end"
   fill="#00e5ff"
   font-family="monospace"
   font-size="13">
-  ● LEETCODE CONNECTED
+● LEETCODE CONNECTED
 </text>
 
-
-<!-- ATMOSPHERIC HERO -->
+<!-- ===================================================== -->
+<!-- NIGHT WORLD -->
+<!-- ===================================================== -->
 
 <rect
   x="${left}"
   y="112"
   width="${right-left}"
   height="190"
-  rx="18"
-  fill="url(#forest)"
-  stroke="#263950"/>
+  rx="16"
+  fill="url(#sky)"
+  stroke="#243850"/>
+
+<!-- stars -->
+
+<circle cx="540" cy="143" r="2" fill="#8feaff"/>
+<circle cx="590" cy="176" r="2" fill="#ffffff"/>
+<circle cx="675" cy="139" r="1.5" fill="#7edfff"/>
+<circle cx="760" cy="168" r="2" fill="#ffffff"/>
+<circle cx="845" cy="136" r="1.5" fill="#7edfff"/>
+<circle cx="930" cy="181" r="2" fill="#ffffff"/>
+<circle cx="1020" cy="143" r="1.5" fill="#8feaff"/>
+<circle cx="1090" cy="172" r="2" fill="#ffffff"/>
 
 <!-- moon -->
 
 <circle
-  cx="1040"
+  cx="1045"
   cy="157"
   r="25"
-  fill="#d9f4ff"
-  opacity=".9"/>
+  fill="#dcecf5"/>
 
 <circle
-  cx="1051"
+  cx="1058"
   cy="148"
   r="25"
-  fill="#071426"/>
+  fill="#07172c"/>
 
-<!-- stars -->
-
-<circle cx="920" cy="145" r="2" fill="#7cecff"/>
-<circle cx="970" cy="181" r="2" fill="#7cecff"/>
-<circle cx="1100" cy="132" r="2" fill="#7cecff"/>
-<circle cx="865" cy="170" r="2" fill="#7cecff"/>
-
-<!-- mountains -->
+<!-- distant mountains -->
 
 <path
-  d="M42 280 L170 175 L235 235 L320 155 L430 280 Z"
-  fill="#0a1c2e"/>
+  d="M42 275
+     L145 190
+     L215 248
+     L310 170
+     L390 245
+     L470 184
+     L555 255
+     L650 168
+     L735 246
+     L825 180
+     L910 250
+     L1000 165
+     L1158 280
+     L1158 302
+     L42 302 Z"
+  fill="#091a2d"/>
+
+<!-- foreground mountains -->
 
 <path
-  d="M320 280 L455 165 L540 230 L650 145 L780 280 Z"
-  fill="#0b2032"/>
+  d="M42 302
+     L160 225
+     L245 302
+     L350 205
+     L450 302
+     L570 220
+     L670 302
+     L790 210
+     L895 302
+     L1010 225
+     L1158 302
+     Z"
+  fill="url(#mountain)"/>
+
+<!-- mountain highlights -->
 
 <path
-  d="M680 280 L810 175 L900 235 L1000 155 L1158 280 Z"
-  fill="#091a2b"/>
+  d="M160 225 L245 302 L205 270 Z"
+  fill="#173957"
+  opacity=".75"/>
 
+<path
+  d="M350 205 L450 302 L398 257 Z"
+  fill="#173957"
+  opacity=".65"/>
 
-<!-- trees -->
+<path
+  d="M790 210 L895 302 L840 255 Z"
+  fill="#173957"
+  opacity=".7"/>
 
-<g fill="#06121e">
+<!-- ===================================================== -->
+<!-- ROBOT -->
+<!-- ===================================================== -->
 
-  <path d="M80 276 L105 220 L130 276 Z"/>
-  <path d="M125 276 L155 205 L185 276 Z"/>
-  <path d="M190 276 L220 210 L250 276 Z"/>
+<!-- antenna -->
 
-  <path d="M925 276 L955 205 L985 276 Z"/>
-  <path d="M980 276 L1010 215 L1040 276 Z"/>
-  <path d="M1060 276 L1090 200 L1120 276 Z"/>
+<line
+  x1="205"
+  y1="188"
+  x2="205"
+  y2="165"
+  stroke="#63eaff"
+  stroke-width="3"/>
 
-</g>
+<circle
+  cx="205"
+  cy="160"
+  r="5"
+  fill="#00e5ff"/>
 
+<!-- robot body -->
 
-<!-- CREATURE -->
+<rect
+  x="168"
+  y="205"
+  width="74"
+  height="58"
+  rx="15"
+  fill="#152b42"
+  stroke="#4c7797"
+  stroke-width="2"/>
 
-<g transform="translate(175 178)">
+<!-- robot head -->
 
-  <!-- glow -->
-  <ellipse
-    cx="58"
-    cy="76"
-    rx="52"
-    ry="12"
-    fill="#00e5ff"
-    opacity=".12"
-    filter="url(#glow)"/>
+<rect
+  x="159"
+  y="178"
+  width="92"
+  height="58"
+  rx="18"
+  fill="#102236"
+  stroke="#6689a2"
+  stroke-width="2"/>
 
-  <!-- antenna -->
-  <line
-    x1="58"
-    y1="12"
-    x2="58"
-    y2="0"
-    stroke="#55e8ff"
-    stroke-width="3"/>
+<!-- eyes -->
 
-  <circle
-    cx="58"
-    cy="0"
-    r="4"
-    fill="#00e5ff"/>
+<rect
+  x="179"
+  y="198"
+  width="15"
+  height="11"
+  rx="4"
+  fill="#00e5ff"/>
 
-  <!-- head -->
-  <rect
-    x="25"
-    y="15"
-    width="66"
-    height="46"
-    rx="16"
-    fill="#0b1725"
-    stroke="#5a7895"
-    stroke-width="2"/>
+<rect
+  x="216"
+  y="198"
+  width="15"
+  height="11"
+  rx="4"
+  fill="#00e5ff"/>
 
-  <!-- eyes -->
-  <circle
-    cx="45"
-    cy="37"
-    r="6"
-    fill="#00e5ff"
-    filter="url(#glow)"/>
+<!-- eye glow -->
 
-  <circle
-    cx="72"
-    cy="37"
-    r="6"
-    fill="#00e5ff"
-    filter="url(#glow)"/>
+<circle
+  cx="187"
+  cy="203"
+  r="3"
+  fill="#ffffff"/>
 
-  <!-- body -->
-  <rect
-    x="34"
-    y="59"
-    width="48"
-    height="32"
-    rx="10"
-    fill="#0d2030"
-    stroke="#36526d"/>
+<circle
+  cx="224"
+  cy="203"
+  r="3"
+  fill="#ffffff"/>
 
-  <!-- core -->
-  <circle
-    cx="58"
-    cy="75"
-    r="6"
-    fill="#7c5cff"/>
+<!-- robot core -->
 
-  <!-- legs -->
-  <path
-    d="M45 91 L38 105 M71 91 L78 105"
-    stroke="#5d7b95"
-    stroke-width="5"
-    stroke-linecap="round"/>
+<circle
+  cx="205"
+  cy="239"
+  r="10"
+  fill="#7c5cff"/>
 
-</g>
+<!-- arms -->
 
+<line
+  x1="168"
+  y1="222"
+  x2="145"
+  y2="245"
+  stroke="#54768f"
+  stroke-width="6"
+  stroke-linecap="round"/>
+
+<line
+  x1="242"
+  y1="222"
+  x2="265"
+  y2="245"
+  stroke="#54768f"
+  stroke-width="6"
+  stroke-linecap="round"/>
+
+<!-- legs -->
+
+<line
+  x1="188"
+  y1="263"
+  x2="178"
+  y2="286"
+  stroke="#54768f"
+  stroke-width="6"
+  stroke-linecap="round"/>
+
+<line
+  x1="222"
+  y1="263"
+  x2="232"
+  y2="286"
+  stroke="#54768f"
+  stroke-width="6"
+  stroke-linecap="round"/>
+
+<!-- ===================================================== -->
+<!-- HERO TEXT -->
+<!-- ===================================================== -->
 
 <text
-  x="330"
-  y="160"
+  x="300"
+  y="155"
   fill="#00e5ff"
   font-family="monospace"
-  font-size="13">
-  LEETCODE // LIVE
+  font-size="13"
+  font-weight="700">
+LEETCODE // LIVE
 </text>
 
 <text
-  x="330"
-  y="195"
-  fill="#f3f6fb"
+  x="300"
+  y="188"
+  fill="#f2f7ff"
   font-family="monospace"
   font-size="28"
   font-weight="700">
-  PROBLEM SOLVING INSTANCE
+PROBLEM SOLVING INSTANCE
 </text>
 
 <text
-  x="330"
-  y="222"
-  fill="#71859e"
+  x="300"
+  y="214"
+  fill="#7890aa"
   font-family="monospace"
-  font-size="13">
-  one problem at a time • one pattern at a time
+  font-size="12">
+one problem at a time • one pattern at a time
 </text>
 
 <text
-  x="330"
-  y="255"
+  x="300"
+  y="244"
   fill="#00e5ff"
   font-family="monospace"
   font-size="11">
-  ENTITY.STATUS // ONLINE
+&gt; SYSTEM.STATUS // ONLINE
 </text>
 
 <text
   x="1128"
-  y="255"
+  y="272"
   text-anchor="end"
-  fill="#607895"
+  fill="#58708b"
   font-family="monospace"
-  font-size="11">
-  ${esc(USERNAME)}
+  font-size="10">
+${esc(USERNAME)}
 </text>
 
-
-<!-- KPI -->
+<!-- ===================================================== -->
+<!-- STATS -->
+<!-- ===================================================== -->
 
 ${[
-  ["SOLVED",fmt(total),"#f3f6fb",left],
-  ["EASY",`${fmt(easy)} / ${fmt(easyTotal)}`,"#65f39a",320],
-  ["MEDIUM",`${fmt(medium)} / ${fmt(medTotal)}`,"#ffd76a",598],
-  ["HARD",`${fmt(hard)} / ${fmt(hardTotal)}`,"#ff8b91",876]
-].map(([label,val,col,x])=>`
+  ["SOLVED", fmt(total), "#f3f6fb", left],
+  ["EASY", `${fmt(easy)} / ${fmt(easyTotal)}`, "#65f39a", 320],
+  ["MEDIUM", `${fmt(medium)} / ${fmt(medTotal)}`, "#ffd76a", 598],
+  ["HARD", `${fmt(hard)} / ${fmt(hardTotal)}`, "#ff8b91", 876]
+].map(([label,val,col,x]) => `
 <rect
   x="${x}"
-  y="322"
+  y="324"
   width="250"
   height="112"
   rx="14"
@@ -548,215 +625,199 @@ ${[
 
 <text
   x="${x+22}"
-  y="350"
+  y="352"
   fill="#617894"
   font-family="monospace"
   font-size="11">
-  ${label}
+${label}
 </text>
 
 <text
   x="${x+22}"
-  y="399"
+  y="397"
   fill="${col}"
   font-family="monospace"
   font-size="29"
   font-weight="700">
-  ${val}
+${val}
 </text>
 
 <text
   x="${x+22}"
-  y="420"
-  fill="#40566f"
+  y="418"
+  fill="#4f6783"
   font-family="monospace"
   font-size="9">
-  LIVE DATA
+LIVE DATA
 </text>
 `).join("")}
 
-
-<!-- ACCEPTANCE -->
+<!-- ===================================================== -->
+<!-- ACCEPTANCE / STREAK / CONTEST -->
+<!-- ===================================================== -->
 
 <rect
   x="${left}"
-  y="454"
+  y="458"
   width="358"
-  height="128"
+  height="126"
   rx="14"
   fill="#0b1220"
   stroke="#263950"/>
 
 <text
   x="64"
-  y="483"
+  y="486"
   fill="#617894"
   font-family="monospace"
   font-size="11">
-  ACCEPTANCE
+ACCEPTANCE
 </text>
 
 <text
   x="64"
-  y="530"
+  y="532"
   fill="#f3f6fb"
   font-family="monospace"
   font-size="34"
   font-weight="700">
-  ${acceptance}%
+${acceptance}%
 </text>
 
+<text
+  x="64"
+  y="557"
+  fill="#607895"
+  font-family="monospace"
+  font-size="10">
+${fmt(acceptedSubmissions)} accepted submissions
+</text>
+
+<!-- acceptance ring -->
+
 <circle
-  cx="330"
-  cy="516"
+  cx="306"
+  cy="520"
   r="27"
   fill="none"
-  stroke="#142338"
+  stroke="#18283b"
   stroke-width="7"/>
 
 <circle
-  cx="330"
-  cy="516"
+  cx="306"
+  cy="520"
   r="27"
   fill="none"
   stroke="#00e5ff"
   stroke-width="7"
-  stroke-dasharray="${Math.min(170, Number(acceptance || 0) * 1.7)} 170"
-  transform="rotate(-90 330 516)"/>
-
-<text
-  x="64"
-  y="560"
-  fill="#607895"
-  font-family="monospace"
-  font-size="10">
-  ${fmt(acceptedSubmissions)} accepted submissions
-</text>
-
-
-<!-- STREAK -->
+  stroke-linecap="round"
+  stroke-dasharray="${Math.max(1, Number(acceptance) * 1.696)} 170"
+  transform="rotate(-90 306 520)"/>
 
 <rect
   x="442"
-  y="454"
+  y="458"
   width="358"
-  height="128"
+  height="126"
   rx="14"
   fill="#0b1220"
   stroke="#263950"/>
 
 <text
   x="468"
-  y="483"
+  y="486"
   fill="#617894"
   font-family="monospace"
   font-size="11">
-  STREAK
+STREAK
 </text>
 
 <text
   x="468"
-  y="530"
+  y="532"
   fill="#ff9d42"
   font-family="monospace"
   font-size="34"
   font-weight="700">
-  ${currentStreak}d
+${currentStreak}d
 </text>
 
 <text
   x="468"
-  y="560"
+  y="557"
   fill="#607895"
   font-family="monospace"
   font-size="10">
-  longest observed: ${longest}d
+longest observed: ${longest}d
 </text>
 
 <text
-  x="760"
-  y="530"
-  text-anchor="end"
+  x="710"
+  y="532"
   fill="#ff9d42"
   font-family="monospace"
-  font-size="11">
-  KEEP GOING
+  font-size="10">
+KEEP GOING
 </text>
-
-
-<!-- CONTEST -->
 
 <rect
   x="824"
-  y="454"
+  y="458"
   width="334"
-  height="128"
+  height="126"
   rx="14"
   fill="#0b1220"
   stroke="#263950"/>
 
 <text
   x="850"
-  y="483"
+  y="486"
   fill="#617894"
   font-family="monospace"
   font-size="11">
-  CONTEST
+CONTEST
 </text>
 
 <text
   x="850"
-  y="523"
+  y="526"
   fill="#b9a8ff"
   font-family="monospace"
-  font-size="27"
+  font-size="28"
   font-weight="700">
-  ${rating}
+${rating}
 </text>
 
 <text
   x="850"
-  y="550"
+  y="551"
   fill="#607895"
   font-family="monospace"
   font-size="10">
-  ${contests} contests
+${contests} contests • rank ${contestRank}
 </text>
 
-<text
-  x="850"
-  y="568"
-  fill="#607895"
-  font-family="monospace"
-  font-size="10">
-  rank ${contestRank}
-</text>
-
-
+<!-- ===================================================== -->
 <!-- DIFFICULTY -->
+<!-- ===================================================== -->
 
 <text
   x="${left}"
-  y="620"
+  y="624"
   fill="#00e5ff"
   font-family="monospace"
-  font-size="13">
-  DIFFICULTY.PROGRESS
+  font-size="13"
+  font-weight="700">
+DIFFICULTY.PROGRESS
 </text>
 
 ${[
-  ["EASY",easy,easyTotal,"easy",0],
-  ["MEDIUM",medium,medTotal,"med",1],
-  ["HARD",hard,hardTotal,"hard",2]
-].map(([label,count,maxQ,key,i])=>{
-
-  const y=648+i*42;
-  const pct=Math.min(100,(count/Math.max(1,maxQ))*100);
-  const fillW=Math.max(8,690*pct/100);
-  const color=
-    key==="easy" ? "#65f39a" :
-    key==="med" ? "#ffd76a" :
-    "#ff8b91";
+  ["EASY", easy, easyTotal, "#65f39a", 652],
+  ["MEDIUM", medium, medTotal, "#ffd76a", 694],
+  ["HARD", hard, hardTotal, "#ff8b91", 736]
+].map(([label,count,maxQ,color,y]) => {
+  const pct = Math.min(100, (count / Math.max(1,maxQ)) * 100);
+  const fillW = Math.max(8, 690 * pct / 100);
 
   return `
 <text
@@ -764,15 +825,15 @@ ${[
   y="${y+13}"
   fill="#93a6bd"
   font-family="monospace"
-  font-size="11">
-  ${label}
+  font-size="10">
+${label}
 </text>
 
 <rect
   x="145"
   y="${y}"
   width="690"
-  height="16"
+  height="15"
   rx="8"
   fill="#111b2a"/>
 
@@ -780,7 +841,7 @@ ${[
   x="145"
   y="${y}"
   width="${fillW}"
-  height="16"
+  height="15"
   rx="8"
   fill="${color}"/>
 
@@ -789,61 +850,64 @@ ${[
   y="${y+13}"
   fill="#e8edf5"
   font-family="monospace"
-  font-size="11">
-  ${fmt(count)} / ${fmt(maxQ)}
-</text>`;
+  font-size="10">
+${fmt(count)} / ${fmt(maxQ)}
+</text>
+`;
 }).join("")}
 
-
-<!-- ACTIVITY -->
+<!-- ===================================================== -->
+<!-- SUBMISSION ACTIVITY -->
+<!-- ===================================================== -->
 
 <rect
   x="${left}"
-  y="790"
+  y="786"
   width="${right-left}"
-  height="220"
+  height="218"
   rx="16"
-  fill="#09111d"
+  fill="#0a111e"
   stroke="#263950"/>
 
 <text
   x="66"
-  y="822"
+  y="816"
   fill="#00e5ff"
   font-family="monospace"
-  font-size="13">
-  SUBMISSION.ACTIVITY
+  font-size="13"
+  font-weight="700">
+SUBMISSION.ACTIVITY
 </text>
 
 <text
   x="1128"
-  y="822"
+  y="816"
   text-anchor="end"
   fill="#71859e"
   font-family="monospace"
   font-size="10">
-  ${fmt(activeDays)} active days
+${fmt(activeDays)} active days • ${fmt(acceptedSubmissions)} accepted
 </text>
 `;
 
-const gridX=66;
-const gridY=850;
-const cell=14;
-const gap=4;
-const cols=Math.ceil(cells.length/7);
+const gridX = 66;
+const gridY = 842;
+const cell = 13;
+const gap = 4;
 
-for(let i=0;i<cells.length;i++){
+for(let i = 0; i < cells.length; i++){
 
-  const c=cells[i];
-  const col=Math.floor(i/7);
-  const row=i%7;
+  const c = cells[i];
 
-  const x=gridX+col*(cell+gap);
-  const y=gridY+row*(cell+gap);
+  const col = Math.floor(i / 7);
+  const row = i % 7;
 
-  if(x>1115) continue;
+  const x = gridX + col * (cell + gap);
+  const y = gridY + row * (cell + gap);
 
-  const lvl=heatLevel(c.count,max);
+  if(x > 1115) continue;
+
+  const lvl = heatLevel(c.count, max);
 
   svg += `
 <rect
@@ -853,53 +917,75 @@ for(let i=0;i<cells.length;i++){
   height="${cell}"
   rx="3"
   fill="${colorForLevel(lvl)}">
-  <title>${c.date.toISOString().slice(0,10)}: ${c.count} submissions</title>
-</rect>`;
+<title>${c.date.toISOString().slice(0,10)}: ${c.count} submissions</title>
+</rect>
+`;
 }
 
-
+<!-- ===================================================== -->
 <!-- FOOTER -->
+<!-- ===================================================== -->
 
 svg += `
 
 <line
   x1="${left}"
-  y1="1035"
+  y1="1024"
   x2="${right}"
-  y2="1035"
+  y2="1024"
   stroke="url(#edge)"
-  opacity=".35"/>
+  opacity=".3"/>
+
+<!-- tiny DSA symbols -->
 
 <text
   x="66"
-  y="1060"
-  fill="#617894"
+  y="1052"
+  fill="#38506a"
   font-family="monospace"
   font-size="10">
-  SYSTEM // DSA MONITOR
+&lt;/&gt;
 </text>
 
 <text
-  x="600"
-  y="1060"
-  text-anchor="middle"
-  fill="#40566f"
+  x="104"
+  y="1052"
+  fill="#38506a"
   font-family="monospace"
   font-size="10">
-  C++ • PATTERNS • OPTIMIZATION
+C++
+</text>
+
+<text
+  x="160"
+  y="1052"
+  fill="#38506a"
+  font-family="monospace"
+  font-size="10">
+{ algorithms }
 </text>
 
 <text
   x="1128"
-  y="1060"
+  y="1052"
   text-anchor="end"
   fill="#00e5ff"
   font-family="monospace"
   font-size="10">
-  KEEP SOLVING.
+KEEP SOLVING.
 </text>
 
-</svg>`;
+<text
+  x="66"
+  y="1082"
+  fill="#30465e"
+  font-family="monospace"
+  font-size="9">
+harshit@devos:~$ echo "one problem at a time."
+</text>
+
+</svg>
+`;
 
 fs.mkdirSync(path.dirname(OUTPUT), {recursive:true});
 fs.writeFileSync(OUTPUT, svg);
