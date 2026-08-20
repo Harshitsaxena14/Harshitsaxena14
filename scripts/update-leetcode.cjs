@@ -271,7 +271,7 @@ ${[
 <rect x="${left}" y="318" width="358" height="132" rx="14" fill="#0b1220" stroke="#263950"/>
 <text x="64" y="348" fill="#617894" font-family="monospace" font-size="12">ACCEPTANCE</text>
 <text x="64" y="399" fill="#f3f6fb" font-family="monospace" font-size="38" font-weight="700">${acceptance}%</text>
-<text x="64" y="428" fill="#607895" font-family="monospace" font-size="12">${fmt(acceptedSubmissions)} accepted submissions</text>`
+<text x="64" y="428" fill="#607895" font-family="monospace" font-size="12">${fmt(acceptedSubmissions)} accepted submissions</text>
 
 <rect x="442" y="318" width="358" height="132" rx="14" fill="#0b1220" stroke="#263950"/>
 <text x="468" y="348" fill="#617894" font-family="monospace" font-size="12">STREAK</text>
