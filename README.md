@@ -1,16 +1,93 @@
-## Hi there 👋
+<div align="center">
 
-<!--
-**Harshitsaxena14/Harshitsaxena14** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<img src="./assets/profile.svg" alt="Harshit Saxena Developer Dashboard" width="100%"/>
 
-Here are some ideas to get you started:
+</div>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## `> whoami`
+
+I'm a Computer Science student and developer focused on **AI/ML, full-stack development, and problem solving**.
+
+I learn by building practical products and improving my engineering fundamentals.
+
+---
+
+<div align="center">
+
+## `PROJECTS.EXECUTING`
+
+</div>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🚀 CodeMent
+
+**DSA Learning Platform**
+
+A structured DSA platform featuring personalized roadmaps, progress tracking, weak-topic detection, AI mentor capabilities, and LeetCode integration.
+
+**Stack:** `React` `Node.js` `Express` `MongoDB`
+
+</td>
+
+<td width="50%" valign="top">
+
+### 🤖 SIH 2026
+
+**AI Government / Citizen Assistant**
+
+A multilingual, voice-first assistant for government scheme discovery, eligibility, applications, and grievance registration/tracking.
+
+**Stack:** `AI` `RAG` `NLP` `Voice AI`
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 🧠 MindLens
+
+**AI Student Wellbeing Analyzer**
+
+AI-powered analysis combining sentiment analysis, computer vision, and predictive modelling.
+
+**Stack:** `Python` `OpenCV` `Transformers` `ML`
+
+</td>
+
+<td width="50%" valign="top">
+
+### 💻 HarshitOS
+
+**Personal Developer Portfolio**
+
+A futuristic developer portfolio focused on projects, engineering work, and interactive UI.
+
+**Stack:** `React` `Vite` `JavaScript`
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+## `DSA.MONITOR`
+
+```text
+╔════════════════════════════════════════════════════╗
+║                                                    ║
+║              LEETCODE PROBLEM SOLVING             ║
+║                                                    ║
+║                  155+ SOLVED                      ║
+║                                                    ║
+║              LANGUAGE  ::  C++                    ║
+║              STATUS    ::  ACTIVE                 ║
+║                                                    ║
+╚════════════════════════════════════════════════════╝
