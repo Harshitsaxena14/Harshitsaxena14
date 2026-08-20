@@ -904,6 +904,7 @@ svg += `
 fs.mkdirSync(path.dirname(OUTPUT), {recursive:true});
 fs.writeFileSync(OUTPUT, svg);
 console.log(`Wrote ${OUTPUT}`);
+}
 
 (async()=>{
   let data;
