@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b16"/>
+      <stop offset="0.55" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#080d18"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="0.5" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#00e5ff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1c2940" stroke-width="1" opacity=".28"/>
+    </pattern>
+  </defs>
+
+  <rect x="8" y="8" width="1184" height="604" rx="22" fill="url(#bg)" stroke="#26344d" stroke-width="2"/>
+  <rect x="18" y="18" width="1164" height="584" rx="18" fill="url(#grid)"/>
+
+  <rect x="28" y="28" width="1144" height="48" rx="12" fill="#0d1423" stroke="#2a3a55"/>
+  <circle cx="52" cy="52" r="6" fill="#ff5f57"/>
+  <circle cx="72" cy="52" r="6" fill="#febc2e"/>
+  <circle cx="92" cy="52" r="6" fill="#28c840"/>
+  <text x="120" y="57" fill="#8fa3bf" font-family="monospace" font-size="18">harshit@devos ~ $ ./profile.sh --live</text>
+  <text x="1138" y="57" text-anchor="end" fill="#00e5ff" font-family="monospace" font-size="14">ONLINE</text>
+
+  <rect x="28" y="92" width="470" height="350" rx="16" fill="#09101d" stroke="#29415d"/>
+  <text x="52" y="124" fill="#00e5ff" font-family="monospace" font-size="14">IDENTITY.NODE</text>
+  <line x1="52" y1="140" x2="474" y2="140" stroke="url(#line)" opacity=".8"/>
+
+  <text x="52" y="198" fill="#f2f6ff" font-family="monospace" font-size="43" font-weight="700">HARSHIT</text>
+  <text x="52" y="246" fill="#f2f6ff" font-family="monospace" font-size="43" font-weight="700">SAXENA</text>
+  <text x="54" y="282" fill="#8fa3bf" font-family="monospace" font-size="15">AI/ML • FULL-STACK • DSA</text>
+
+  <rect x="52" y="310" width="160" height="32" rx="16" fill="#101b2d" stroke="#38516e"/>
+  <text x="132" y="331" text-anchor="middle" fill="#00e5ff" font-family="monospace" font-size="12">BUILDING</text>
+  <rect x="222" y="310" width="145" height="32" rx="16" fill="#101b2d" stroke="#38516e"/>
+  <text x="294" y="331" text-anchor="middle" fill="#b5a4ff" font-family="monospace" font-size="12">LEARNING</text>
+
+  <text x="52" y="382" fill="#617792" font-family="monospace" font-size="13">focus:// AI • SOFTWARE • PROBLEM SOLVING</text>
+  <text x="52" y="412" fill="#617792" font-family="monospace" font-size="13">mode:// BUILD → SHIP → IMPROVE</text>
+
+  <rect x="518" y="92" width="654" height="350" rx="16" fill="#09101d" stroke="#29415d"/>
+  <text x="542" y="124" fill="#00e5ff" font-family="monospace" font-size="14">SYSTEM.INFO</text>
+  <line x1="542" y1="140" x2="1148" y2="140" stroke="url(#line)" opacity=".8"/>
+
+  <g font-family="monospace" font-size="16">
+    <text x="542" y="174" fill="#617792">SUBJECT</text><text x="690" y="174" fill="#f2f6ff">Harshit Saxena</text>
+    <text x="542" y="206" fill="#617792">ROLE</text><text x="690" y="206" fill="#f2f6ff">AI/ML + Full-Stack Developer</text>
+    <text x="542" y="238" fill="#617792">EDUCATION</text><text x="690" y="238" fill="#f2f6ff">B.Tech Computer Science</text>
+    <text x="542" y="270" fill="#617792">STATUS</text><text x="690" y="270" fill="#00e5ff">BUILDING &amp; LEARNING</text>
+
+    <text x="542" y="318" fill="#617792">LANGUAGES</text><text x="690" y="318" fill="#f2f6ff">C++ • Python • JavaScript</text>
+    <text x="542" y="350" fill="#617792">FRONTEND</text><text x="690" y="350" fill="#f2f6ff">React • Vite • Tailwind</text>
+    <text x="542" y="382" fill="#617792">BACKEND</text><text x="690" y="382" fill="#f2f6ff">Node.js • Express</text>
+    <text x="542" y="414" fill="#617792">AI / ML</text><text x="690" y="414" fill="#f2f6ff">ML • Deep Learning • NLP • RAG</text>
+  </g>
+
+  <rect x="28" y="466" width="1144" height="112" rx="16" fill="#09101d" stroke="#29415d"/>
+  <text x="52" y="498" fill="#00e5ff" font-family="monospace" font-size="14">BUILD.STATUS</text>
+
+  <g font-family="monospace" font-size="14">
+    <text x="52" y="530" fill="#8fa3bf">[01]</text><text x="102" y="530" fill="#f2f6ff">CodeMent</text>
+    <text x="310" y="530" fill="#8fa3bf">[02]</text><text x="360" y="530" fill="#f2f6ff">SIH 2026</text>
+    <text x="560" y="530" fill="#8fa3bf">[03]</text><text x="610" y="530" fill="#f2f6ff">MindLens</text>
+    <text x="790" y="530" fill="#8fa3bf">[04]</text><text x="840" y="530" fill="#f2f6ff">DSA 155+</text>
+    <text x="1055" y="530" fill="#00e5ff">ACTIVE</text>
+  </g>
+
+  <line x1="28" y1="578" x2="1172" y2="578" stroke="url(#line)" opacity=".5"/>
+  <text x="52" y="598" fill="#536b86" font-family="monospace" font-size="12">harshit@devos:~$ echo "keep building."</text>
+
+  <rect x="28" y="28" width="1144" height="2" fill="url(#line)" opacity=".7">
+    <animate attributeName="y" values="28;600;28" dur="5s" repeatCount="indefinite"/>
+  </rect>
+</svg>
