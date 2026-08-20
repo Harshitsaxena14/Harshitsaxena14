@@ -345,17 +345,7 @@ let svg = `
   transform-box: fill-box;
   transform-origin: center;
 }
-.heatWorm {
-  animation: wormMove 18s linear infinite;
-}
 
-.heatWormGlow {
-  animation: wormMove 18s linear infinite;
-}
-
-.heatWormEye {
-  animation: wormMove 18s linear infinite;
-}
 
 @keyframes wormMove {
   0% {
@@ -1160,33 +1150,101 @@ for(let i = 0; i < cells.length; i++){
 </rect>
 `;
 }
- if (wormCells.length > 1) {
+ if (cells.length > 20) {
 
-  const wormPoints = wormCells.map(c => {
-    const index = cells.indexOf(c);
-    const col = Math.floor(index / 7);
-    const row = index % 7;
+  /*
+   * RANDOM WORM PATH
+   * The path is generated every time the dashboard updates.
+   * This means the worm does not always follow the same route.
+   */
 
-    return {
-      x: gridX + col * (cell + gap) + cell / 2,
-      y: gridY + row * (cell + gap) + cell / 2
-    };
-  });
+  const wormCols = Math.ceil(cells.length / 7);
+
+  let wormCol = Math.floor(Math.random() * Math.min(wormCols, 65));
+  let wormRow = Math.floor(Math.random() * 7);
+
+  const wormPoints = [];
+
+  const directions = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+    [1, 1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1]
+  ];
+
+  let lastDirection = null;
+
+  for (let i = 0; i < 18; i++) {
+
+    wormPoints.push({
+      x: gridX + wormCol * (cell + gap) + cell / 2,
+      y: gridY + wormRow * (cell + gap) + cell / 2
+    });
+
+    let possible = directions.filter(([dx, dy]) => {
+
+      const nx = wormCol + dx;
+      const ny = wormRow + dy;
+
+      if (nx < 0 || nx >= Math.min(wormCols, 65)) return false;
+      if (ny < 0 || ny >= 7) return false;
+
+      return true;
+    });
+
+    /*
+     * Usually continue in the same direction,
+     * but occasionally change direction.
+     */
+
+    if (
+      lastDirection &&
+      Math.random() > 0.35 &&
+      possible.some(
+        d => d[0] === lastDirection[0] &&
+             d[1] === lastDirection[1]
+      )
+    ) {
+
+      possible = [
+        lastDirection,
+        ...possible.filter(
+          d => d[0] !== lastDirection[0] ||
+               d[1] !== lastDirection[1]
+        )
+      ];
+    }
+
+    const direction =
+      possible[Math.floor(Math.random() * possible.length)];
+
+    lastDirection = direction;
+
+    wormCol += direction[0];
+    wormRow += direction[1];
+  }
 
   const wormPath = wormPoints
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
+    .map((p, i) =>
+      `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`
+    )
     .join(" ");
 
   svg += `
+
   <!-- ================================================= -->
-  <!-- HEATMAP WORM -->
+  <!-- RANDOM HEATMAP WORM -->
   <!-- ================================================= -->
 
   <defs>
 
     <filter id="wormGlow">
       <feGaussianBlur
-        stdDeviation="3"
+        stdDeviation="4"
         result="blur"/>
 
       <feMerge>
@@ -1199,8 +1257,9 @@ for(let i = 0; i < cells.length; i++){
       id="wormTravelPath"
       d="${wormPath}"
       fill="none"/>
-      
+
   </defs>
+
 
   <!-- subtle trail -->
 
@@ -1209,58 +1268,157 @@ for(let i = 0; i < cells.length; i++){
     fill="none"
     stroke="#00e5ff"
     stroke-width="2"
-    opacity=".10"
+    opacity=".08"
     stroke-linecap="round"
     stroke-linejoin="round"/>
 
 
-  <!-- WORM -->
+  <!-- ================================================= -->
+  <!-- WORM BODY -->
+  <!-- ================================================= -->
 
-  <g class="heatWorm">
-
-    <!-- tail -->
-
-    <circle
-      cx="-14"
-      cy="0"
-      r="2.5"
-      fill="#07546a"
-      opacity=".65"/>
+  <g class="wormSegment">
 
     <circle
-      cx="-8"
-      cy="0"
-      r="3.5"
-      fill="#087f9b"
-      opacity=".85"/>
-
-    <!-- body -->
-
-    <circle
-      cx="0"
-      cy="0"
-      r="5"
-      fill="#00e5ff"
+      r="7"
+      fill="#006b83"
+      opacity=".45"
       filter="url(#wormGlow)"/>
 
-    <!-- eye -->
-
     <circle
-      cx="2"
-      cy="-1.5"
-      r="1.3"
-      fill="#ffffff"/>
-
-    <!-- movement -->
+      r="5.5"
+      fill="#00bcd4"/>
 
     <animateMotion
-      dur="18s"
+      dur="16s"
       repeatCount="indefinite"
       rotate="auto">
       <mpath href="#wormTravelPath"/>
     </animateMotion>
 
   </g>
+
+
+  <!-- BODY SEGMENT 2 -->
+
+  <g class="wormSegment">
+
+    <circle
+      r="7"
+      fill="#006b83"
+      opacity=".45"
+      filter="url(#wormGlow)"/>
+
+    <circle
+      r="5"
+      fill="#00a8c0"/>
+
+    <animateMotion
+      dur="16s"
+      begin="-0.7s"
+      repeatCount="indefinite"
+      rotate="auto">
+      <mpath href="#wormTravelPath"/>
+    </animateMotion>
+
+  </g>
+
+
+  <!-- BODY SEGMENT 3 -->
+
+  <g class="wormSegment">
+
+    <circle
+      r="6.5"
+      fill="#005a70"
+      opacity=".5"
+      filter="url(#wormGlow)"/>
+
+    <circle
+      r="4.5"
+      fill="#008fa8"/>
+
+    <animateMotion
+      dur="16s"
+      begin="-1.4s"
+      repeatCount="indefinite"
+      rotate="auto">
+      <mpath href="#wormTravelPath"/>
+    </animateMotion>
+
+  </g>
+
+
+  <!-- BODY SEGMENT 4 -->
+
+  <g class="wormSegment">
+
+    <circle
+      r="6"
+      fill="#00495b"
+      opacity=".5"/>
+
+    <circle
+      r="4"
+      fill="#007d94"/>
+
+    <animateMotion
+      dur="16s"
+      begin="-2.1s"
+      repeatCount="indefinite"
+      rotate="auto">
+      <mpath href="#wormTravelPath"/>
+    </animateMotion>
+
+  </g>
+
+
+  <!-- ================================================= -->
+  <!-- WORM HEAD -->
+  <!-- ================================================= -->
+
+  <g class="wormHead">
+
+    <!-- glow -->
+
+    <circle
+      r="11"
+      fill="#00e5ff"
+      opacity=".10"
+      filter="url(#wormGlow)"/>
+
+    <!-- head -->
+
+    <circle
+      r="7.5"
+      fill="#00e5ff"
+      filter="url(#wormGlow)"/>
+
+    <!-- eye -->
+
+    <circle
+      cx="2.5"
+      cy="-2"
+      r="1.8"
+      fill="#ffffff"/>
+
+    <!-- tiny eye reflection -->
+
+    <circle
+      cx="3"
+      cy="-2.5"
+      r=".7"
+      fill="#ffffff"/>
+
+    <animateMotion
+      dur="16s"
+      repeatCount="indefinite"
+      rotate="auto">
+      <mpath href="#wormTravelPath"/>
+    </animateMotion>
+
+  </g>
+
   `;
 }
 <!-- ===================================================== -->
