@@ -227,7 +227,30 @@ const easyTotal = getStat(data.allQuestionsCount, "Easy");
   const contests = contest?.attendedContestsCount ?? "—";
 
   const badges = (u.badges || []).slice(0, 3);
-  const badgeNames = badges.map(b => b.displayName || b.name).filter(Boolean);
+const badgeNames = badges.map(b => b.displayName || b.name).filter(Boolean);
+
+const robotState =
+  currentStreak >= 30
+    ? "OVERDRIVE"
+    : activeDays > 0
+      ? "ACTIVE"
+      : "IDLE";
+
+const robotColor =
+  robotState === "OVERDRIVE"
+    ? "#ffd76a"
+    : robotState === "ACTIVE"
+      ? "#00e5ff"
+      : "#607895";
+
+const energy = Math.min(
+  100,
+  Math.round(
+    Math.min(60, currentStreak) +
+    Math.min(25, total / 10) +
+    Math.min(15, acceptance === "—" ? 0 : Number(acceptance) / 10)
+  )
+);
 
   const W = 1200, H = 1120;
 const left = 42, right = 1158;
@@ -275,6 +298,54 @@ let svg = `
           stroke="#19304a"
           opacity=".22"/>
   </pattern>
+  <style>
+@keyframes robotFloat {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes robotPulse {
+  0%,100% { opacity: .45; }
+  50% { opacity: 1; }
+}
+
+.robot {
+  animation: robotFloat 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.robotGlow {
+  animation: robotPulse 2s ease-in-out infinite;
+}
+</style>
+<style>
+@keyframes heroRobotFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes heroRobotGlow {
+  0%, 100% {
+    opacity: .05;
+  }
+
+  50% {
+    opacity: .14;
+  }
+}
+
+.heroRobot {
+  animation: heroRobotFloat 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+</style>
 
 </defs>
 
@@ -551,6 +622,150 @@ harshit@devos ~ $ dsa --monitor --live
   stroke="#54768f"
   stroke-width="6"
   stroke-linecap="round"/>
+  <!-- ===================================================== -->
+<!-- HERO ROBOT -->
+<!-- ===================================================== -->
+
+<g class="heroRobot">
+
+  <!-- glow -->
+  <circle
+    cx="190"
+    cy="190"
+    r="62"
+    fill="${robotColor}"
+    opacity=".05"/>
+
+  <circle
+    cx="190"
+    cy="190"
+    r="45"
+    fill="none"
+    stroke="${robotColor}"
+    stroke-width="1"
+    opacity=".22"/>
+
+  <!-- antenna -->
+  <line
+    x1="190"
+    y1="137"
+    x2="190"
+    y2="122"
+    stroke="${robotColor}"
+    stroke-width="3"
+    stroke-linecap="round"/>
+
+  <circle
+    cx="190"
+    cy="118"
+    r="5"
+    fill="${robotColor}"/>
+
+  <!-- head -->
+  <rect
+    x="150"
+    y="145"
+    width="80"
+    height="62"
+    rx="16"
+    fill="#101c2d"
+    stroke="${robotColor}"
+    stroke-width="2"/>
+
+  <!-- eyes -->
+  <rect
+    x="163"
+    y="164"
+    width="20"
+    height="12"
+    rx="5"
+    fill="${robotColor}"/>
+
+  <rect
+    x="197"
+    y="164"
+    width="20"
+    height="12"
+    rx="5"
+    fill="${robotColor}"/>
+
+  <circle
+    cx="173"
+    cy="170"
+    r="3"
+    fill="#07101c"/>
+
+  <circle
+    cx="207"
+    cy="170"
+    r="3"
+    fill="#07101c"/>
+
+  <!-- body -->
+  <rect
+    x="160"
+    y="214"
+    width="60"
+    height="48"
+    rx="12"
+    fill="#0c1727"
+    stroke="${robotColor}"
+    stroke-width="2"/>
+
+  <!-- core -->
+  <circle
+    cx="190"
+    cy="237"
+    r="9"
+    fill="none"
+    stroke="${robotColor}"
+    stroke-width="2"/>
+
+  <circle
+    cx="190"
+    cy="237"
+    r="3"
+    fill="${robotColor}"/>
+
+  <!-- arms -->
+  <line
+    x1="160"
+    y1="225"
+    x2="140"
+    y2="244"
+    stroke="${robotColor}"
+    stroke-width="4"
+    stroke-linecap="round"/>
+
+  <line
+    x1="220"
+    y1="225"
+    x2="240"
+    y2="244"
+    stroke="${robotColor}"
+    stroke-width="4"
+    stroke-linecap="round"/>
+
+  <!-- legs -->
+  <line
+    x1="175"
+    y1="262"
+    x2="168"
+    y2="280"
+    stroke="${robotColor}"
+    stroke-width="4"
+    stroke-linecap="round"/>
+
+  <line
+    x1="205"
+    y1="262"
+    x2="212"
+    y2="280"
+    stroke="${robotColor}"
+    stroke-width="4"
+    stroke-linecap="round"/>
+
+</g>
 
 <!-- ===================================================== -->
 <!-- HERO TEXT -->
