@@ -201,15 +201,16 @@ function render(data) {
   const easy = getStat(ac, "Easy");
   const medium = getStat(ac, "Medium");
   const hard = getStat(ac, "Hard");
-  const allSubmissions = getStat(ac, "All", "submissions");
+  const acceptedSubmissions = getStat(ac, "All", "submissions");
+const totalSubmissions = getStat(u.submitStats.totalSubmissionNum, "All", "submissions");
 
-  const easyTotal = getStat(data.allQuestionsCount, "Easy");
+const easyTotal = getStat(data.allQuestionsCount, "Easy");
   const medTotal = getStat(data.allQuestionsCount, "Medium");
   const hardTotal = getStat(data.allQuestionsCount, "Hard");
 
-  const acceptance = allSubmissions
-    ? ((total / allSubmissions) * 100).toFixed(2)
-    : "—";
+  const acceptance = totalSubmissions
+  ? ((acceptedSubmissions / totalSubmissions) * 100).toFixed(2)
+  : "—";
 
   const calendarRaw = typeof u.userCalendar?.submissionCalendar === "string"
     ? JSON.parse(u.userCalendar.submissionCalendar || "{}")
@@ -270,7 +271,7 @@ ${[
 <rect x="${left}" y="318" width="358" height="132" rx="14" fill="#0b1220" stroke="#263950"/>
 <text x="64" y="348" fill="#617894" font-family="monospace" font-size="12">ACCEPTANCE</text>
 <text x="64" y="399" fill="#f3f6fb" font-family="monospace" font-size="38" font-weight="700">${acceptance}%</text>
-<text x="64" y="428" fill="#607895" font-family="monospace" font-size="12">${fmt(allSubmissions)} accepted submissions</text>
+<text x="64" y="428" fill="#607895" font-family="monospace" font-size="12">${fmt(acceptedSubmissions)} accepted submissions</text>`
 
 <rect x="442" y="318" width="358" height="132" rx="14" fill="#0b1220" stroke="#263950"/>
 <text x="468" y="348" fill="#617894" font-family="monospace" font-size="12">STREAK</text>
@@ -302,7 +303,7 @@ ${[
 <!-- activity -->
 <rect x="${left}" y="690" width="${right-left}" height="220" rx="16" fill="#0a111e" stroke="#263950"/>
 <text x="66" y="722" fill="#00e5ff" font-family="monospace" font-size="14">SUBMISSION.ACTIVITY</text>
-<text x="1128" y="722" text-anchor="end" fill="#71859e" font-family="monospace" font-size="12">${fmt(activeDays)} active days • ${fmt(allSubmissions)} accepted</text>
+<text x="1128" y="722" text-anchor="end" fill="#71859e" font-family="monospace" font-size="12">${fmt(activeDays)} active days • ${fmt(acceptedSubmissions)} accepted</text>
 `;
 
   const gridX=66, gridY=748, cell=14, gap=4;
