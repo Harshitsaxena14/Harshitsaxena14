@@ -78,16 +78,26 @@ A futuristic developer portfolio focused on projects, engineering work, and inte
 
 <div align="center">
 
-## `DSA.MONITOR`
+## `> dsa --monitor`
 
-```text
-╔════════════════════════════════════════════════════╗
-║                                                    ║
-║              LEETCODE PROBLEM SOLVING             ║
-║                                                    ║
-║                  155+ SOLVED                      ║
-║                                                    ║
-║              LANGUAGE  ::  C++                    ║
-║              STATUS    ::  ACTIVE                 ║
-║                                                    ║
-╚════════════════════════════════════════════════════╝
+### `LEETCODE // LIVE`
+
+<a href="https://leetcode.com/u/harshit_saxena14/">
+
+<img src="https://leetcard.jacoblin.cool/harshit_saxena14?theme=dark&font=baloo&border=0&radius=12&cache=60" width="500"/>
+
+</a>
+
+<br/><br/>
+
+### `SUBMISSION.ACTIVITY`
+
+<img src="https://leetcard.jacoblin.cool/harshit_saxena14?ext=activity&theme=dark&font=baloo&border=0&radius=12&cache=60" width="500"/>
+
+<br/><br/>
+
+### `52W.HEATMAP`
+
+<img src="https://leetcard.jacoblin.cool/harshit_saxena14?ext=heatmap&theme=dark&font=baloo&border=0&radius=12&cache=60" width="500"/>
+
+</div>
