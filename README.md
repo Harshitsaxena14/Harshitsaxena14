@@ -6,7 +6,7 @@
 
 ---
 
-## `> whoami`
+## `> Who Am I`
 
 I'm a Computer Science student and developer focused on **AI/ML, full-stack development, and problem solving**.
 
